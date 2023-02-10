@@ -1,11 +1,13 @@
-import { authenticateToken } from "@/middlewares";
+import { authenticateToken, validateBody } from "@/middlewares";
 import {Router} from "express"
-import { getBooking } from "@/controllers/booking-controller";
+import { getBooking, postBooking } from "@/controllers/booking-controller";
+import { bookingSchema } from "@/schemas/booking-schema";
 const bookingRouter = Router();
 
 bookingRouter
     .all("/*", authenticateToken)
     .get("/", getBooking )
+    .post("/",validateBody(bookingSchema) ,postBooking)
 
 export {bookingRouter}
 
