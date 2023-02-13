@@ -1,1 +1,12 @@
-import faker from "@faker-js/faker"
+
+
+export async function createBooking(){
+
+    // return prisma.booking.create({
+    //     data:{
+    //         userId:createdUser.id,
+    //         roomId: createdRoom.id
+    //     }
+    // })
+    
+}

@@ -23,10 +23,32 @@ async function createBooking(userId:number, roomId:number){
 
 }
 
+async function findRoombyId(roomId:number){
+
+    return prisma.room.findFirst({
+        where:{id:roomId},
+        include:{
+            _count:{select:{Booking:true}}
+        }
+    })
+}
+
+async function updateBooking( bookingId:number, userId:number, roomId:number,){
+
+    return prisma.booking.update({
+        where:{id: bookingId},
+        data:{
+            userId:userId,
+            roomId:roomId
+        }
+    })
+}
 
 const bookingRepository = {
     findBooking,
-    createBooking
+    createBooking,
+    findRoombyId,
+    updateBooking,
 }
 
 export default bookingRepository;

@@ -34,3 +34,7 @@ export type RequestError = {
 export type Booking = {
   roomId: number,
 }
+
+export type BookingId = {
+  id: number,
+}
