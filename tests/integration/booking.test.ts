@@ -554,7 +554,7 @@ describe("PUT /:bookingId", ()=>{
             const body = {roomId:updateRoom.id}
 
             const response = await api.put(`/booking/${booking.id}`).set("Authorization", `Bearer ${token}`).send(body);
-            
+
         expect(response.status).toBe(httpStatus.OK);
 
         expect(response.body).toEqual({
@@ -562,5 +562,6 @@ describe("PUT /:bookingId", ()=>{
         })
 
     })
+})
 
 })
